@@ -45,4 +45,41 @@ describe("matrix", () => {
       expect(m.has(3, 0)).toBe(false);
     });
   });
+
+  describe("get", () => {
+    it("works for (0, 0)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(0, 0)).toBe("a");
+    });
+
+    it("works for (0, last)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(0, 2)).toBe("g");
+    });
+
+    it("fails for (0, last + 1)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(0, 3)).toBe(false);
+    });
+
+    it("works for (last, last)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(2, 2)).toBe("i");
+    });
+
+    it("fails for (last + 1, last + 1)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(3, 3)).toBe(false);
+    });
+
+    it("works for (last, 0)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(2, 0)).toBe("c");
+    });
+
+    it("fails for (last + 1, 0)", () => {
+      const m = new Matrix(exampleMatrix);
+      expect(m.get(3, 0)).toBe(false);
+    });
+  });
 });
